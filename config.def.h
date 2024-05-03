@@ -99,19 +99,19 @@ float alpha = 0.8;
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
     /* 8 normal colors */
-    "black", "red3", "green3", "yellow3", "blue2", "magenta3", "cyan3",
-    "gray90",
+    "#5C5F77", "#D20F39", "#40A02B", "#DF8E1D", "#5c90f7", "#EA76CB", "#179299",
+    "#dddddd",
 
     /* 8 bright colors */
-    "gray50", "red", "green", "yellow", "#5c5cff", "magenta", "cyan", "white",
+    "#474747", "#D20F39", "#40a02b", "#df8e1d", "#5c90f7", "#EA76CB", "#179299",
+    "#BCC0CC",
 
     [255] = 0,
 
     /* more colors can be added after 255 to use with DefaultXX */
-    "#cccccc", "#555555", "gray90", /* default foreground colour */
-    "black",                        /* default background colour */
+    "#ffffff", "#000000", "#FFFFFF", /* default foreground colour */
+    "#0d0d12",                       /* default background colour */
 };
-
 /*
  * Default colors (colorname index)
  * foreground, background, cursor, reverse cursor
@@ -188,6 +188,8 @@ static Shortcut shortcuts[] = {
     {TERMMOD, XK_Y, selpaste, {.i = 0}},
     {ShiftMask, XK_Insert, selpaste, {.i = 0}},
     {TERMMOD, XK_Num_Lock, numlock, {.i = 0}},
+    {ShiftMask, XK_Up, kscrollup, {.i = 1}},
+    {ShiftMask, XK_Down, kscrolldown, {.i = 1}},
     {ShiftMask, XK_Page_Up, kscrollup, {.i = -1}},
     {ShiftMask, XK_Page_Down, kscrolldown, {.i = -1}},
 };
