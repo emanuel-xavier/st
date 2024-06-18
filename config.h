@@ -94,7 +94,7 @@ char *termname = "st-256color";
 unsigned int tabspaces = 4;
 
 /* bg opacity */
-float alpha = 0.8;
+float alpha = 0.9;
 
 /* Terminal colors (16 first used in escape sequence) */
 static const char *colorname[] = {
@@ -111,7 +111,7 @@ static const char *colorname[] = {
 
     /* 8 bright colors */
     [8] = "#4d4d4d",  /* black   */
-    [9] = "#3e0605",  /* red     */
+    [9] = "#B80100",  /* red     */
     [10] = "#23fd00", /* green   */
     [11] = "#fffd00", /* yellow  */
     [12] = "#0091ff", /* blue    */
@@ -173,13 +173,14 @@ static uint forcemousemod = ShiftMask;
  * Internal mouse shortcuts.
  * Beware that overloading Button1 will disable the selection.
  */
+
 static MouseShortcut mshortcuts[] = {
     /* mask                 button   function        argument       release */
     {XK_ANY_MOD, Button2, selpaste, {.i = 0}, 1},
-    {ShiftMask, Button4, ttysend, {.s = "\033[5;2~"}},
-    {XK_ANY_MOD, Button4, ttysend, {.s = "\031"}},
-    {ShiftMask, Button5, ttysend, {.s = "\033[6;2~"}},
-    {XK_ANY_MOD, Button5, ttysend, {.s = "\005"}},
+    {ShiftMask, Button4, kscrollup, {.i = 1}, 0},
+    {XK_ANY_MOD, Button4, kscrollup, {.i = 1}, 0},
+    {ShiftMask, Button5, kscrolldown, {.i = 1}, 0},
+    {XK_ANY_MOD, Button5, kscrolldown, {.i = 1}, 0},
 };
 
 /* Internal keyboard shortcuts. */
